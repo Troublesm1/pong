@@ -4,7 +4,7 @@ from pong.ball import Ball
 import time
 
 screen = Screen()
-screen.title("Pong")
+screen.title("Jovahnn's Game of Pong")
 screen.bgcolor("black")
 screen.setup(width=800, height=600)
 screen.tracer(0)
@@ -34,6 +34,12 @@ while game_is_on:
     if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
 
+    #Detect when Right paddle misses
+    if ball.xcor() > 380:
+        ball.reset_position()
+    #Detect when Left paddle misses
+    if ball.xcor() < -380:
+        ball.reset_position()
 
 
 
